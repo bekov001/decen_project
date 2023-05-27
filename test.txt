@@ -1,0 +1,16 @@
+ const MOCK_SIGNATURE = '1234567812345678123456781234567812345678123456781234567812345678';
+
+
+
+ const headers = new Headers({
+        // TODO: replace when offchain release
+        Authorization: `authTypeV2 ECDSA-secp256k1, Signature=${MOCK_SIGNATURE}`,
+        'X-Gnfd-Unsigned-Msg': unSignedMessageInHex,
+      });
+
+
+Authorization = auth_type + "ECDSA-secp256k1 " + string-to-sign + ":" + Signature
+string-to-sign = crypto.Keccak256(sha256(canonical request)
+Signature = privateKey.secp256k1-Sign(string-to-sign)
+
+Authorization: authTypeV1 ECDSA-secp256k1, SignedMsg=70d03c8d65eb304fefc6d358168db4cfe9305a82dae54bb6a8dc4fbfa7461ca2, Signature=53e2f098411c5df46b71111337a5cf48bf254ba4a8516996445626619c4f10ac57a5ba081154272ed9e0334a338db39bf74f6de0f3c252fd27890fb81cffd29d00
