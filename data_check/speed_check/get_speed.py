@@ -1,8 +1,14 @@
+import os
 from json import dumps
 
 import requests
 import sys
 import time
+
+# from pysecp256k1 import *
+from sha3 import keccak_256
+from hashlib import sha256
+from ecdsa import SigningKey, SECP256k1
 
 DATA = {
   "nodereal": "https://gnfd-testnet-sp-1.nodereal.io",
@@ -67,19 +73,48 @@ def sign():
     return p
 
 
-# def auth():
+def get_request(url, method="GET"):
+    http_method = method
+    CanonicalUri = url
+    CanonicalQueryString = ""
+    canonical_headers = dumps({
+
+    })
+    signed_headers = ""
+    return "\n".join([http_method, CanonicalUri, CanonicalQueryString, canonical_headers, signed_headers]
+                     )
 
 
+def auth(url):
+    auth_type = "authTypeV1"
+    canonical_request = get_request(url)
+    string_to_sign = keccak_256(sha256(canonical_request.encode("utf-8")).hexdigest().encode()).hexdigest().encode()
+    # val = int.from_bytes(string_to_sign.digest(), 'big')
+    # string_to_sign = ('%064x' % val)
 
-a = sign()
+    signature = str(((sk.sign(string_to_sign)).hex()))
+    print(signature)
+    authorization = auth_type + " ECDSA-secp256k1 " + str(string_to_sign.decode()) + ":" + signature
+    print(authorization)
+    return authorization
+
+
+sk = SigningKey.generate(curve=SECP256k1)  # uses NIST192p
+vk = sk.verifying_key
 # print(a)
-# URL = DATA['nodereal']
+URL = DATA['nodereal']
+au = auth(URL + "/greenfield/admin/v1/get-approval")
+
+private_key = sha256(b"seckey").hexdigest()
+a = sign()
+
 payload = {
-  'Authentication': 'value1',
+  'Authentication': au,
   'X-Gnfd-Unsigned-Msg': a
 }
 print(payload)
-# requests.get(URL + "/greenfield/admin/v1/get-approval")
+res = requests.get(URL + "/greenfield/admin/v1/get-approval", headers=payload, params={"action":"CreateObject"})
+print(res.text)
 # def downloadFile(url, directory) :
 #     localFilename = url.split('/')[-1]
 #     with open(directory + '/' + localFilename, 'wb') as f:
