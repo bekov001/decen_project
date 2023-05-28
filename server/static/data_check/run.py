@@ -1,7 +1,7 @@
 import schedule
 import time
 import csv
-from data_check.main import ChainData
+from server.static.data_check.main import ChainData
 # 1685198725
 ch = ChainData(url='https://gnfd-testnet-fullnode-tendermint-us.bnbchain.org/')
 
