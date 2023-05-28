@@ -1,0 +1,208 @@
+
+        /* Your CSS styles can be added here */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f5f5;
+            color: #333; /* Updated color for main text */
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-left: 200px;
+        }
+
+        h1 {
+            color: #000;
+            margin-left: 210px;
+            font-family: sans-serif;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 200px;
+        }
+
+        section {
+            width: 47%;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+  section {
+    width: 80%; /* Set the width to 80% for mobile screens */
+    margin-right: 0; /* Remove the right margin for mobile screens */
+  }
+}
+
+        h2 {
+            color: #000;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #f5f5f5;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            color: #999;
+            margin-left: 200px;
+            font-family: sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 6px 6px 6px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000;
+            display: block;
+            font-family: sans-serif;
+        }
+
+        .sidenav a:hover {
+            color: rgb(154,205,50);
+        }
+
+        .main {
+            margin-left: 200px; /* Same as the width of the sidenav */
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 17px;
+            }
+            .sidenav a {
+                font-size: 16px;
+            }
+           
+        }
+        .green {
+        color: rgb(154,205,50);
+        }
+
+        
+        .sidenav a.brand {
+            font-size: 27px;
+            font-weight: bold;
+            color:#000;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 6px;
+            margin-left: 10px;
+        }
+
+        .search-button {
+            padding: 6px 10px;
+            background-color: rgb(154,205,50);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #ADFF2F;
+        }
+        .notification {
+    display: flex;
+    align-items: center;
+    background-color: #f8e5e5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-color: #e25c5c;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+h3 {
+    margin: 0;
+    color: #e25c5c;
+}
+
+p {
+    margin: 5px 0;
+    color: #333;
+}
+.status-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.status-label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.status-value {
+    color: green;
+    /* You can use different colors for different status values */
+}
+.table {
+    margin-left: 200px;
+    border-collapse: collapse;
+    width: 80%;
+  }
+
+  .table th, .table td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .table th {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+  }
+
+  .table td {
+    background-color: #ffffff;
+    color: #000000;
+  }
